@@ -10,7 +10,7 @@ export default StyleSheet.create({
     title: {
         fontSize: 65,
         color: '#1da1f2',
-        marginTop: 30,
+        marginTop: 60,
         marginBottom: 70,
     },
     logo: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 25,
         borderRadius: 30,
-        margin: 3,
+        margin: 5,
     },
     buttonBackgroundGray: {
         backgroundColor: '#aab8c2',

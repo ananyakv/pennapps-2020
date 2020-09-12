@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
 import * as Speech from 'expo-speech';
 import Styles from '../Styles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Bot = (props) => {
     return (
