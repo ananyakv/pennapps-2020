@@ -7,10 +7,23 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
-      buttonBackground: {
-        backgroundColor: '#e1e8ed',
+      buttonBackground1: {
+        backgroundColor: '#1da1f2',
+        paddingVertical: 20,
+        paddingHorizontal: 25,
+        borderRadius: 30,
+        margin: 3,
+      },
+      buttonBackground2: {
+        backgroundColor: '#aab8c2',
+        paddingVertical: 20,
+        paddingHorizontal: 25,
+        borderRadius: 30,
+        marginTop: 15,
       },
       buttonText: {
-        color: '#1da1f2',
+        color: '#f5f8fa',
+        fontSize: 18,
+        fontWeight: '400',
       }  
 })

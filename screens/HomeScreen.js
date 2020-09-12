@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { firebase } from '../firebase/config';
-import styles from '../Styles';
+import Styles from '../Styles';
 
 function HomeScreen(props) {
     
@@ -39,23 +39,28 @@ function HomeScreen(props) {
     }
 
     return (
-        <View styles={styles.container}>
-            <Button
-                title="Join Help Queue"
-                onPress={joinQueue}
-            />
-            <Button
-                title="Go to Bot"
-                onPress={() =>
-                    props.navigation.navigate('Bot')
-                }
-            />
-            <Button
-                title="Go to Chat"
-                onPress={() =>
-                    props.navigation.navigate('Chat')
-                }
-            />
+        <View style={Styles.container}>
+            <TouchableOpacity>
+                <View onPress={joinQueue} style={Styles.buttonBackground1}>
+                    <Text style={Styles.buttonText}>
+                        Connect With a Hearing Volunteer
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <View onPress={() => props.navigation.navigate('Bot')} style={Styles.buttonBackground1}>
+                    <Text style={Styles.buttonText}>
+                        Go to Text and Speech Bot
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <View onPress={() => props.navigation.navigate('Chat')} style={Styles.buttonBackground2}>
+                    <Text style={Styles.buttonText}>
+                        Volunteer to Help
+                    </Text>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 };
