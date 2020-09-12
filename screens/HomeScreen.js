@@ -1,12 +1,35 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-function HomeScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home!</Text>
-        </View>
-    );
+class HomeScreen extends React.Component {
+    render() {
+        return (
+            <View>
+                <Text>You have (undefined) friends.</Text>
+
+                <Button
+                    title="Go to Connecting"
+                    onPress={() =>
+                        this.props.navigation.navigate('Connecting')
+                    }
+                />
+                <Button
+                    title="Go to Bot"
+                    onPress={() =>
+                        this.props.navigation.navigate('Bot')
+                    }
+                />
+                <Button
+                    title="Go to Chat"
+                    onPress={() =>
+                        this.props.navigation.navigate('Chat')
+                    }
+                />
+            </View>
+        );
+    }
 }
+
+// ...
+
+export default HomeScreen;
