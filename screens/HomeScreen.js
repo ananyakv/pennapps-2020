@@ -41,21 +41,21 @@ function HomeScreen(props) {
     return (
         <View style={Styles.container}>
             <TouchableOpacity>
-                <View onPress={joinQueue} style={Styles.buttonBackground}>
+                <View onPress={joinQueue} style={Styles.buttonBackground1}>
                     <Text style={Styles.buttonText}>
                         Connect With a Hearing Volunteer
                     </Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity>
-                <View onPress={() => props.navigation.navigate('Bot')} style={Styles.buttonBackground}>
+                <View onPress={() => props.navigation.navigate('Bot')} style={Styles.buttonBackground1}>
                     <Text style={Styles.buttonText}>
                         Go to Text and Speech Bot
                     </Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity>
-                <View onPress={() => props.navigation.navigate('Chat')} style={Styles.buttonBackground}>
+                <View onPress={() => props.navigation.navigate('Chat')} style={Styles.buttonBackground2}>
                     <Text style={Styles.buttonText}>
                         Volunteer to Help
                     </Text>

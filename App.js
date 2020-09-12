@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import Connecting from "./screens/Connecting";
-import Bot from "./screens/Bot";
+import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
 import Styles from "./Styles";
 
@@ -20,7 +20,7 @@ class App extends React.Component {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Connecting" component={Connecting} />
             <Stack.Screen name="Chat" component={Chat} />
-            <Stack.Screen name="Bot" component={Bot} />
+          <Stack.Screen name="Bot" component={BotMultiline} />
         </Stack.Navigator>
       </NavigationContainer>
     );
