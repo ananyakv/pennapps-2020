@@ -26,6 +26,7 @@ const BotMultiline = (props) => {
                 onPress={() => Speech.speak(value)}
                 style={Styles.buttonbackground1}
             />
+            {console.log(Speech.getAvailableVoicesAsync())}
             <View
                 style={{
                     padding: '5%',

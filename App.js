@@ -8,7 +8,7 @@ import HomeScreen from "./screens/HomeScreen";
 import Connecting from "./screens/Connecting";
 import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
-import PhoneCall from "/Users/angela/Documents/GitHub/pennapps-2020/PhoneCall.js";
+import PhoneCall from "./PhoneCall";
 import Styles from "./Styles";
 
 const Stack = createStackNavigator();
