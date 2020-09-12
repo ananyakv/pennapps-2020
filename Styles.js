@@ -9,8 +9,11 @@ export default StyleSheet.create({
       },
       buttonBackground: {
         backgroundColor: '#e1e8ed',
+        padding: 15,
+        borderRadius: 25,
       },
       buttonText: {
         color: '#1da1f2',
+        fontSize: 20,
       }  
 })
