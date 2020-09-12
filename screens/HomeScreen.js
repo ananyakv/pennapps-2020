@@ -8,9 +8,21 @@ class HomeScreen extends React.Component {
                 <Text>You have (undefined) friends.</Text>
 
                 <Button
-                    title="Add some friends"
+                    title="Go to Connecting"
                     onPress={() =>
-                        this.props.navigation.navigate('Friends')
+                        this.props.navigation.navigate('Connecting')
+                    }
+                />
+                <Button
+                    title="Go to Bot"
+                    onPress={() =>
+                        this.props.navigation.navigate('Bot')
+                    }
+                />
+                <Button
+                    title="Go to Chat"
+                    onPress={() =>
+                        this.props.navigation.navigate('Chat')
                     }
                 />
             </View>

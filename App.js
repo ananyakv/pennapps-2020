@@ -5,7 +5,9 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
-import FriendsScreen from './screens/FriendsScreen';
+import Connecting from './screens/Connecting';
+import Bot from './screens/Bot';
+import Chat from './screens/Chat';
 
 const Stack = createStackNavigator();
 
@@ -19,8 +21,16 @@ class App extends React.Component {
             component={HomeScreen}
           />
           <Stack.Screen
-            name="Friends"
-            component={FriendsScreen}
+            name="Connecting"
+            component={Connecting}
+          />
+          <Stack.Screen
+            name="Chat"
+            component={Chat}
+          />
+          <Stack.Screen
+            name="Bot"
+            component={Bot}
           />
         </Stack.Navigator>
       </NavigationContainer>

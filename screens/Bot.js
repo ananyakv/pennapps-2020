@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-class FriendsScreen extends React.Component {
+class Bot extends React.Component {
     render() {
         return (
             <View>
-                <Text>Add friends here!</Text>
+                <Text>Bot</Text>
 
                 <Button
                     title="Back to home"
@@ -20,4 +20,4 @@ class FriendsScreen extends React.Component {
 
 // ...
 
-export default FriendsScreen;
+export default Bot;
