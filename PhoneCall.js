@@ -11,20 +11,20 @@ function PhoneCall() {
       .ref("queue")
       .once("value")
       .then(function (snapshot) {
+        console.log(snapshot.val());
         if (snapshot.exists()) {
           var name = snapshot.val();
           setTime(Object.keys(name)[0]);
           name = Object.values(name);
-          //get the first person's number in queue
           setPhoneNum(name[0]);
           //delete from queue
-          firebase
-            .database()
-            .ref("queue/" + time)
-            .remove();
+          // firebase
+          //   .database()
+          //   .ref("queue/" + time)
+          //   .remove();
         }
       });
-  }, "");
+  }, []);
   console.log(time);
   console.log(phoneNum);
   return <Text>hi</Text>;
