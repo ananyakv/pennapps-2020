@@ -19,22 +19,24 @@ function HomeScreen(props) {
 
     const joinQueue = () => {
         firebase.database().ref('queue/count').once("value", snapshot => {
+            const position = 1
             if (snapshot.exists()) {
-                const position = snapshot.val() + 1
-                const date = getDate();
-                firebase.database().ref('queue/' + date).set({
-                    phone: 4088968867
-                })
-                firebase.database().ref('queue/count').set(position)
-                Alert.alert(
-                    "Joined Queue!",
-                    "You are number " + position + " in the queue",
-                    [
-                        { text: "OK", onPress: () => { props.navigation.navigate('Chat') } }
-                    ],
-                    { cancelable: false }
-                );
+                position = snapshot.val() + 1
             }
+            const date = getDate();
+            firebase.database().ref('queue/' + date).set({
+                phone: 4088968867
+            })
+            firebase.database().ref('queue/count').set(position)
+            firebase.database().ref('messages/4088968867').set(["You have connected with a live user!"])
+            Alert.alert(
+                "Joined Queue!",
+                "You are number " + position + " in the queue",
+                [
+                    { text: "OK", onPress: () => {props.navigation.navigate('Chat')} }
+                ],
+                { cancelable: false }
+            );
         })
     }
 
