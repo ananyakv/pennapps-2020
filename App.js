@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen";
 import Connecting from "./screens/Connecting";
 import Bot from "./screens/Bot";
 import Chat from "./screens/Chat";
+import PhoneCall from "/Users/angela/Documents/GitHub/pennapps-2020/PhoneCall.js";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Stack.Screen name="Chat" component={Chat} />
           <Stack.Screen name="Bot" component={Bot} />
         </Stack.Navigator>
+        <PhoneCall />
       </NavigationContainer>
     );
   }

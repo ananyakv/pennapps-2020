@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,17 +7,19 @@ import {
   TouchableOpacity,
   SafeAreaView,
   TextInput,
-  ScrollView
+  ScrollView,
 } from "react-native";
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat } from "react-native-gifted-chat";
 
 import { Linking } from "react-native";
 // import { SafeAreaView, Text, Button, TouchableOpacity } from "react-native";
 import Communications from "react-native-communications";
-import { firebase } from '../firebase/config';
+import { firebase } from "../firebase/config";
 
-function Chat (props) {
-  const [messages, setMessages] = useState([])
+function Chat(props) {
+  const [messages, setMessages] = useState([]);
+  console.log(props.phoneNum);
+
   return (
     <SafeAreaView>
       <Button
@@ -29,11 +31,10 @@ function Chat (props) {
         title="Back to home"
         onPress={() => this.props.navigation.navigate("Home")}
       />
-    <GiftedChat messages={messages}>
-    </GiftedChat>
+      <GiftedChat messages={messages}></GiftedChat>
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={text => onChangeText(text)}
+        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+        onChangeText={(text) => onChangeText(text)}
         value={""}
       />
     </SafeAreaView>
@@ -42,14 +43,13 @@ function Chat (props) {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#CCFFCC',
+    backgroundColor: "#CCFFCC",
     marginHorizontal: 20,
-    height: "70%"
+    height: "70%",
   },
   text: {
     fontSize: 35,
   },
 });
-
 
 export default Chat;
