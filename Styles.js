@@ -10,8 +10,13 @@ export default StyleSheet.create({
     title: {
         fontSize: 65,
         color: '#1da1f2',
-        marginTop: 30,
-        marginBottom: 110,
+        marginTop: 50,
+        marginBottom: 70,
+    },
+    logo: {
+        width: 150,
+        height: 150,
+        resizeMode: 'contain'
     },
     buttonBackground1: {
         backgroundColor: '#1da1f2',

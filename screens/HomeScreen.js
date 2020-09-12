@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { firebase } from '../firebase/config';
@@ -42,6 +42,10 @@ function HomeScreen(props) {
 
     return (
         <View style={Styles.container}>
+            <Image
+                source={require('../logo.jpeg')}
+                style={Styles.logo}
+            />
             <Text style={Styles.title}>
                 S p e a k
             </Text>
