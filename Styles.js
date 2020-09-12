@@ -10,8 +10,8 @@ export default StyleSheet.create({
     title: {
         fontSize: 65,
         color: '#1da1f2',
-        marginTop: 50,
-        marginBottom: 60,
+        marginTop: 30,
+        marginBottom: 70,
     },
     logo: {
         width: 150,
@@ -36,6 +36,15 @@ export default StyleSheet.create({
         color: '#f5f8fa',
         fontSize: 18,
         fontWeight: '400',
+    },
+    chatText: {
+        fontSize: 16,
+        height: 40,
+        borderWidth: 1,
+        borderColor: '#e1e8ed',
+        paddingLeft: 20,
+        borderRadius: 20,
+        margin: 5,
     },
     header: {
         backgroundColor: '#f5f8fa',
