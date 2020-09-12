@@ -18,14 +18,14 @@ export default StyleSheet.create({
         height: 150,
         resizeMode: 'contain'
     },
-    buttonBackground1: {
+    buttonBackgroundBlue: {
         backgroundColor: '#1da1f2',
         paddingVertical: 20,
         paddingHorizontal: 25,
         borderRadius: 30,
         margin: 3,
     },
-    buttonBackground2: {
+    buttonBackgroundGray: {
         backgroundColor: '#aab8c2',
         paddingVertical: 20,
         paddingHorizontal: 25,

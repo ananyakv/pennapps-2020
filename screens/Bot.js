@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import * as Speech from 'expo-speech';
-import Styles from "../Styles";
+import Styles from '../Styles';
 
 const Bot = (props) => {
     return (
@@ -22,7 +22,7 @@ const BotMultiline = (props) => {
             <Button
                 title="Speak"
                 onPress={() => Speech.speak(value)}
-                style={Styles.buttonbackground1}
+                style={Styles.buttonBackgroundBlue}
             />
             <View
                 style={{
