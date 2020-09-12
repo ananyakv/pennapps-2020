@@ -12,7 +12,7 @@ const Bot = (props) => {
     );
 }
 
-const BotMultiline = () => {
+const BotMultiline = (props) => {
     const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
     // If you type something in the text box that is a color, the background will change to that
