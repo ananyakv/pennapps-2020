@@ -19,7 +19,7 @@ function HomeScreen(props) {
 
     const joinQueue = () => {
         firebase.database().ref('queue/count').once("value", snapshot => {
-            const position = 1
+            var position = 1
             if (snapshot.exists()) {
                 position = snapshot.val() + 1
             }
