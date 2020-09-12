@@ -23,7 +23,7 @@ class App extends React.Component {
           <Stack.Screen name="Chat" component={Chat} />
           <Stack.Screen name="Bot" component={BotMultiline} />
         </Stack.Navigator>
-        <PhoneCall />
+        {/* <PhoneCall /> */}
       </NavigationContainer>
     );
   }

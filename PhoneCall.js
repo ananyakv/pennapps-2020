@@ -5,33 +5,36 @@ import Chat from "/Users/angela/Documents/GitHub/pennapps-2020/screens/Chat.js";
 
 function PhoneCall() {
   const [phoneNum, setPhoneNum] = useState("");
-  const [time, setTime] = useState("");
+  // const [time, setTime] = useState("");
+
   useEffect(() => {
     firebase
       .database()
       .ref("queue")
-      .once("value")
-      .then(function (snapshot) {
-        console.log(snapshot.val());
+      .orderByKey()
+      .limitToFirst(1)
+      .once("value", (snapshot) => {
         if (snapshot.exists()) {
-          var name = snapshot.val();
-          setTime(Object.keys(name)[0]);
-          name = Object.values(name);
-          setPhoneNum(name[0]);
-          //delete from queue
-          // firebase
-          //   .database()
-          //   .ref("queue/" + time)
-          //   .remove();
+          console.log(snapshot.val());
+          var firstKey = Object.keys(snapshot.val())[0];
+          var phone = snapshot.val()[firstKey].phone;
+          setPhoneNum(phone);
+          firebase
+            .database()
+            .ref("queue/" + firstKey)
+            .remove();
+          console.log(snapshot.val());
+          firebase
+            .database()
+            .ref("queue/count")
+            .once("value", (snapshot) => {
+              var count = snapshot.val() - 1;
+              firebase.database().ref("queue/count").set(count);
+            });
         }
       });
   }, []);
-  console.log(time);
   console.log(phoneNum);
-  return (
-    <Text>
-      <Chat phoneNum={phoneNum}></Chat>
-    </Text>
-  );
+  return <Text>{/* <Chat phoneNum={phoneNum}></Chat> */}</Text>;
 }
 export default PhoneCall;
