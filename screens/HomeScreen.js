@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { firebase } from '../firebase/config'
+import { firebase } from '../firebase/config';
+import styles from '../Styles';
 
 function HomeScreen(props) {
     
@@ -28,7 +29,7 @@ function HomeScreen(props) {
     }
 
     return (
-        <View>
+        <View styles={styles.container}>
             <Button
                 title="Join Help Queue"
                 onPress={joinQueue}

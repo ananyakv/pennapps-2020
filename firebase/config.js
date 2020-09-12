@@ -6,7 +6,7 @@ import { proc } from 'react-native-reanimated';
 const firebaseConfig = {
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
-    databaseURL: process.env.databaseURL,
+    databaseURL: 'https://pennapps2020-eac03.firebaseio.com',
     projectId: process.env.projectId,
     storageBucket: process.env.storageBucket,
     messagingSenderId: process.env.messagingSenderId,
