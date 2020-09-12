@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -17,83 +17,67 @@ import Communications from "react-native-communications";
 import { firebase } from "../firebase/config";
 
 function Chat (props) {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([]);
   const [phone, setPhone] = useState(props.route.params.phone.toString(10))
-  const [user, setUser] = useState(props.route.params.user)
+  const [user, setUser] = useState({
+    _id: props.route.params.user == "requester" ? 0:1,
+    name: props.route.params.user
+  })
+
+  useEffect(() => {
+    // populate messages
+    getRef().limitToLast(20).on('child_added', (snapshot) => {
+      parse(snapshot)});
+    // stop listening for database changes on unmount
+    return () => {getRef().off()};
+  },[]);
 
   const getRef = () => {
     return firebase.database().ref('messages/' + phone);
   }
 
-  const on = callback => {
-    getRef().limitToLast(20).on('child_added', snapshot => callback(parse(snapshot)));
-  }
-
-  const parse = snapshot => {
-    const { timestamp: numberStamp, text, user } = snapshot.val();
-    const { key: _id } = snapshot;
-
-    const timestamp = new Date(numberStamp);
-
-    const message = {
-      _id,
-      timestamp,
-      text,
-      user,
-    };
-    return message;
+  const parse = (snapshot) => {
+    setMessages(messages => [...messages, snapshot.val()])
   };
 
-  const off = () => {
-    getRef().off()
-  }
+  const getDate = () => {
+    var date = new Date().getDate(); //To get the Current Date
+    var month = new Date().getMonth(); //To get the Current Month
+    var year = new Date().getFullYear(); //To get the Current Year
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+    return new Date(year, month, date, hours, min, sec);
+}
 
-  const getTimestamp = () => {
-    return firebase.database().ServerValue.TIMESTAMP;
-  }
-
-  const send = messages => {
-    for (let i = 0; i < messages.length; i++) {
-      const { text, user } = messages[i];
-      
+  const onSend = msgs => {
+    var date = getDate()
+    for (let i = 0; i < msgs.length; i++) {
+      console.log("onsend", msgs[i])
+      const { text, user } = msgs[i];
       const message = {
         text,
         user,
-        timestamp: timestamp,
+        date
       };
-      setMessages(messages => [...messages, message]);
+      var newKey = getRef().push(message).key;
+      firebase.database().ref('messages/' + phone + "/"+ newKey + "/" + "_id").set(newKey);
     }
   };
 
-  const append = message => {
-    this.ref.push(message);
-  }
-
-  useEffect(() => {
-    // populate messages
-    firebase.on(message =>
-      this.setState(previousState => ({
-        messages: GiftedChat.append(previousState.messages, message),
-      }))
-    );
-    // stop listening for database changes on unmount
-    return firebase.off();
-  });
-
   return (
-    <SafeAreaView>
-      <Button
+    <>
+    <Button
         title={"make phone call"}
         onPress={() => Communications.phonecall(phone, true)}
-      />
+    />
 
-      <Button
-        title="Back to home"
-        onPress={() => props.navigation.navigate("Home")}
-      />
-    <GiftedChat messages={messages} onSend={firebase.send} user={user}>
-    </GiftedChat>
-    </SafeAreaView>
+    <Button
+      title="Back to home"
+      onPress={() => props.navigation.navigate("Home")}
+    />
+    <GiftedChat messages={messages} onSend={messages => onSend(messages)} user={user}/>
+    </>
   );
 }
 

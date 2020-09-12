@@ -28,6 +28,7 @@ function HomeScreen(props) {
     const joinQueue = () => {
         firebase.database().ref('queue/count').once("value", snapshot => {
             var position = 1
+            var phone = "4088968867"
             if (snapshot.exists()) {
                 position = snapshot.val() + 1
             }
@@ -36,15 +37,25 @@ function HomeScreen(props) {
                 phone: 4088968867
             })
             firebase.database().ref('queue/count').set(position)
-            firebase.database().ref('messages/4088968867').set(["You have connected with a live user!"])
-            Alert.alert(
-                "Joined Queue!",
-                "You are number " + position + " in the queue",
-                [
-                    { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" })} }
-                ],
-                { cancelable: false }
-            );
+            var initialMsg = {
+                _id: 0,
+                text: "You have connected with a live user!", 
+                createdAt: getDate(),
+                user: {
+                    _id: 0,
+                    name: "requester"
+                },
+            } 
+            firebase.database().ref('messages/' + phone).set([initialMsg])
+            // Alert.alert(
+            //     "Joined Queue!",
+            //     "You are number " + position + " in the queue",
+            //     [
+            //         { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" })} }
+            //     ],
+            //     { cancelable: false }
+            // );
+            props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" });
         })
     }
 
@@ -62,21 +73,21 @@ function HomeScreen(props) {
                 S p e a k
             </Text>
             <TouchableOpacity onPress={joinQueue}>
-                <View style={Styles.buttonBackground1}>
+                <View style={Styles.buttonBackgroundBlue}>
                     <Text style={Styles.buttonText}>
                         Connect With a Hearing Volunteer
                     </Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => props.navigation.navigate('Bot')}>
-                <View style={Styles.buttonBackground1}>
+                <View style={Styles.buttonBackgroundBlue}>
                     <Text style={Styles.buttonText}>
                         Go to Text and Speech Bot
                     </Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={matchUsers}>
-                <View style={Styles.buttonBackground2}>
+                <View style={Styles.buttonBackgroundGray}>
                     <Text style={Styles.buttonText}>
                         Volunteer to Help
                     </Text>
