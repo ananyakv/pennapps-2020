@@ -11,7 +11,7 @@ export default StyleSheet.create({
         fontSize: 65,
         color: '#1da1f2',
         marginTop: 50,
-        marginBottom: 70,
+        marginBottom: 60,
     },
     logo: {
         width: 150,
