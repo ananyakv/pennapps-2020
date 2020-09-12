@@ -18,7 +18,7 @@ const BotMultiline = () => {
     // If you type something in the text box that is a color, the background will change to that
     // color.
     return (
-        <div>
+        <View>
             <View
                 style={{
                     backgroundColor: value,
@@ -38,10 +38,10 @@ const BotMultiline = () => {
             <Button
                 title="Back to home"
                 onPress={() =>
-                    this.props.navigation.navigate('Home')
+                    props.navigation.navigate('Home')
                 }
             />
-        </div>
+        </View>
     );
 }
 
