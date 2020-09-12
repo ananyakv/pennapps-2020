@@ -1,13 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import Connecting from './screens/Connecting';
-import Bot from './screens/Bot';
-import Chat from './screens/Chat';
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./screens/HomeScreen";
+import Connecting from "./screens/Connecting";
+import Bot from "./screens/Bot";
+import Chat from "./screens/Chat";
 
 const Stack = createStackNavigator();
 
@@ -16,22 +16,10 @@ class App extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-          />
-          <Stack.Screen
-            name="Connecting"
-            component={Connecting}
-          />
-          <Stack.Screen
-            name="Chat"
-            component={Chat}
-          />
-          <Stack.Screen
-            name="Bot"
-            component={Bot}
-          />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Connecting" component={Connecting} />
+          <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="Bot" component={Bot} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -41,9 +29,9 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
