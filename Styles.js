@@ -6,7 +6,7 @@ export default StyleSheet.create({
         backgroundColor: '#f5f8fa',
         alignItems: 'center',
         justifyContent: 'center',
-      },
+    },
     title: {
         fontSize: 65,
         color: '#1da1f2',
@@ -36,5 +36,8 @@ export default StyleSheet.create({
         color: '#f5f8fa',
         fontSize: 18,
         fontWeight: '400',
-    }  
+    },
+    header: {
+        backgroundColor: '#f5f8fa',
+    }
 })

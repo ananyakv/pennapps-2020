@@ -19,6 +19,9 @@ import { firebase } from "../firebase/config";
 function Chat(props) {
   const [messages, setMessages] = useState([]);
 
+  //Ananya added this:
+  const [value, onChangeText] = React.useState("");
+
   return (
     <SafeAreaView>
       <Button

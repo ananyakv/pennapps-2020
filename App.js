@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -17,11 +17,27 @@ class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Connecting" component={Connecting} />
-          <Stack.Screen name="Chat" component={Chat} />
-          <Stack.Screen name="Bot" component={BotMultiline} />
+        <Stack.Navigator /*screenOptions={{ headerShown: false }}*/>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ header: () => null }}
+          />
+          <Stack.Screen
+            name="Connecting"
+            component={Connecting}
+            options={{ header: () => null }}
+          />
+          <Stack.Screen
+            name="Chat"
+            component={Chat}
+            options={{ header: () => null }}
+          />
+          <Stack.Screen
+            name="Bot"
+            component={BotMultiline}
+            options={{ header: () => null }}
+          />
         </Stack.Navigator>
         {/* <PhoneCall /> */}
       </NavigationContainer>
