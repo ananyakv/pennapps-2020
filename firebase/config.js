@@ -1,7 +1,7 @@
-import * as firebase from 'firebase';
-import '@firebase/auth';
-import '@firebase/firestore';
-import { proc } from 'react-native-reanimated';
+import * as firebase from "firebase";
+import "@firebase/auth";
+import "@firebase/firestore";
+// import { proc } from 'react-native-reanimated';
 
 const firebaseConfig = {
     apiKey: process.env.apiKey,
@@ -15,7 +15,7 @@ const firebaseConfig = {
 };
 
 if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 }
 
 export { firebase };
