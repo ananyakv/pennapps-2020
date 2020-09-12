@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { firebase } from "/Users/angela/Documents/GitHub/pennapps-2020/firebase/config.js";
+import Chat from "/Users/angela/Documents/GitHub/pennapps-2020/screens/Chat.js";
 
 function PhoneCall() {
   const [phoneNum, setPhoneNum] = useState("");
@@ -27,6 +28,10 @@ function PhoneCall() {
   }, []);
   console.log(time);
   console.log(phoneNum);
-  return <Text>hi</Text>;
+  return (
+    <Text>
+      <Chat phoneNum={phoneNum}></Chat>
+    </Text>
+  );
 }
 export default PhoneCall;

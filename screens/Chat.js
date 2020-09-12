@@ -29,7 +29,7 @@ function Chat(props) {
 
       <Button
         title="Back to home"
-        onPress={() => this.props.navigation.navigate("Home")}
+        onPress={() => props.navigation.navigate("Home")}
       />
       <GiftedChat messages={messages}></GiftedChat>
       <TextInput
