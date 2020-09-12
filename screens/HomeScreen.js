@@ -65,39 +65,28 @@ function HomeScreen(props) {
       <Image source={require("../logo.jpeg")} style={Styles.logo} />
       <Text style={Styles.title}>S p e a k</Text>
       <TouchableOpacity onPress={joinQueue}>
-        <View style={Styles.buttonBackground1}>
+        <View style={Styles.buttonBackgroundBlue}>
           <Text style={Styles.buttonText}>
             Connect With a Hearing Volunteer
           </Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.navigation.navigate("Bot")}>
-        <View style={Styles.buttonBackground1}>
-          <Text style={Styles.buttonText}>Go to Text and Speech Bot</Text>
+        <View style={Styles.buttonBackgroundBlue}>
+          <Text style={Styles.buttonText}>
+              Go to Text and Speech Bot
+        </Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.navigation.navigate("Chat")}>
-        <View style={Styles.buttonBackground2}>
-          <Text style={Styles.buttonText}>Volunteer to Help</Text>
+        <View style={Styles.buttonBackgroundGray}>
+          <Text style={Styles.buttonText}>
+              Volunteer to Help
+        </Text>
         </View>
       </TouchableOpacity>
     </View>
   );
 }
-
-//   return (
-//     <View styles={styles.container}>
-//       <Button title="Join Help Queue" onPress={joinQueue} />
-//       <Button
-//         title="Go to Bot"
-//         onPress={() => props.navigation.navigate("Bot")}
-//       />
-//       <Button
-//         title="Go to Chat"
-//         onPress={() => props.navigation.navigate("Chat")}
-//       />
-//     </View>
-//   );
-// }
 
 export default HomeScreen;
