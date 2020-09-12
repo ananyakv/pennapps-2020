@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import {
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    TouchableOpacity,
-    SafeAreaView,
-    TextInput,
-    ScrollView
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  SafeAreaView,
+  TextInput,
+  ScrollView,
 } from "react-native";
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat } from "react-native-gifted-chat";
 
 import { Linking } from "react-native";
 // import { SafeAreaView, Text, Button, TouchableOpacity } from "react-native";
 import Communications from "react-native-communications";
-import { firebase } from '../firebase/config';
+import { firebase } from "../firebase/config";
 
 function Chat (props) {
   const [messages, setMessages] = useState([])
@@ -109,15 +109,14 @@ function Chat (props) {
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: '#CCFFCC',
-        marginHorizontal: 20,
-        height: "70%"
-    },
-    text: {
-        fontSize: 35,
-    },
+  scrollView: {
+    backgroundColor: "#CCFFCC",
+    marginHorizontal: 20,
+    height: "70%",
+  },
+  text: {
+    fontSize: 35,
+  },
 });
-
 
 export default Chat;
