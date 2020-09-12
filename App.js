@@ -13,7 +13,7 @@ import PhoneCall from "/Users/angela/Documents/GitHub/pennapps-2020/PhoneCall.js
 import Styles from "./Styles";
 
 import * as firebase from "firebase";
-import auth from "@react-native-firebase/auth";
+// import auth from "@react-native-firebase/auth";
 
 function App() {
   const [user, setUser] = useState("");
@@ -26,7 +26,7 @@ function App() {
     console.log("hi", user);
     firebase
       .auth()
-      .signInWithPhoneNumber(phoneNum)
+      .signUpWithPhoneNumber(phoneNum)
       .catch((err) => {
         switch (err.code) {
           case "auth/invalid-phoneNum":

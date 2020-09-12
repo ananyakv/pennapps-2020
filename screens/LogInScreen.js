@@ -15,7 +15,6 @@ function LogInScreen(props) {
           value={props.phoneNum}
           onChange={(e) => props.setPhoneNum(e.target.value)}
         />
-        <p>{props.phoneNum}</p>
         <Button
           color="black"
           title="Log In"

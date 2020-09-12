@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,30 +16,68 @@ import { Linking } from "react-native";
 import Communications from "react-native-communications";
 import { firebase } from "../firebase/config";
 
-function Chat(props) {
+function Chat (props) {
   const [messages, setMessages] = useState([]);
+  const [phone, setPhone] = useState(props.route.params.phone.toString(10))
+  const [user, setUser] = useState({
+    _id: props.route.params.user == "requester" ? 0:1,
+    name: props.route.params.user
+  })
 
-  //Ananya added this:
-  const [value, onChangeText] = React.useState("");
+  useEffect(() => {
+    // populate messages
+    getRef().limitToLast(20).on('child_added', (snapshot) => {
+      parse(snapshot)});
+    // stop listening for database changes on unmount
+    return () => {getRef().off()};
+  },[]);
+
+  const getRef = () => {
+    return firebase.database().ref('messages/' + phone);
+  }
+
+  const parse = (snapshot) => {
+    setMessages(messages => [...messages, snapshot.val()])
+  };
+
+  const getDate = () => {
+    var date = new Date().getDate(); //To get the Current Date
+    var month = new Date().getMonth(); //To get the Current Month
+    var year = new Date().getFullYear(); //To get the Current Year
+    var hours = new Date().getHours(); //To get the Current Hours
+    var min = new Date().getMinutes(); //To get the Current Minutes
+    var sec = new Date().getSeconds(); //To get the Current Seconds
+    return new Date(year, month, date, hours, min, sec);
+}
+
+  const onSend = msgs => {
+    var date = getDate()
+    for (let i = 0; i < msgs.length; i++) {
+      console.log("onsend", msgs[i])
+      const { text, user } = msgs[i];
+      const message = {
+        text,
+        user,
+        date
+      };
+      var newKey = getRef().push(message).key;
+      firebase.database().ref('messages/' + phone + "/"+ newKey + "/" + "_id").set(newKey);
+    }
+  };
 
   return (
-    <SafeAreaView>
-      <Button
-        title="make phone call"
-        onPress={() => Communications.phonecall("4088968867", true)}
-      />
+    <>
+    <Button
+        title={"make phone call"}
+        onPress={() => Communications.phonecall(phone, true)}
+    />
 
-      <Button
-        title="Back to home"
-        onPress={() => props.navigation.navigate("Home")}
-      />
-      <GiftedChat messages={messages}></GiftedChat>
-      <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-        onChangeText={(text) => onChangeText(text)}
-        value={""}
-      />
-    </SafeAreaView>
+    <Button
+      title="Back to home"
+      onPress={() => props.navigation.navigate("Home")}
+    />
+    <GiftedChat messages={messages} onSend={messages => onSend(messages)} user={user}/>
+    </>
   );
 }
 
