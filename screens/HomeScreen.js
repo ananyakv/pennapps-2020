@@ -33,7 +33,7 @@ function HomeScreen(props) {
                 "Joined Queue!",
                 "You are number " + position + " in the queue",
                 [
-                    { text: "OK", onPress: () => {props.navigation.navigate('Chat')} }
+                    { text: "OK", onPress: () => { props.navigation.navigate('Chat') } }
                 ],
                 { cancelable: false }
             );
