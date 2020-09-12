@@ -12,9 +12,5 @@ web-build/
 # macOS
 .DS_Store
 .env
-<<<<<<< HEAD
 config.js
 package-lock.json
-=======
-config.js
->>>>>>> 3bf1c776a6fd0a626926f5288bd4a5a8ecabe803
