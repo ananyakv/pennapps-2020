@@ -4,7 +4,7 @@ import "@firebase/firestore";
 // import { proc } from 'react-native-reanimated';
 
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
+  apiKey: "AIzaSyAhGkp4N92_cg7YbooiWPqRlkBXsZnE4KA",
   authDomain: process.env.authDomain,
   databaseURL: "https://pennapps2020-eac03.firebaseio.com",
   //   databaseURL: process.env.databaseURL,
