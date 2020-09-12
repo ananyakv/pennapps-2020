@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Alert } from "react-native";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,6 +8,10 @@ import HomeScreen from "./screens/HomeScreen";
 import Connecting from "./screens/Connecting";
 import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
+<<<<<<< Updated upstream
+=======
+import PhoneCall from "./PhoneCall.js";
+>>>>>>> Stashed changes
 import Styles from "./Styles";
 
 const Stack = createStackNavigator();
@@ -38,7 +42,6 @@ class App extends React.Component {
             options={{ header: () => null }}
           />
         </Stack.Navigator>
-        {/* <PhoneCall /> */}
       </NavigationContainer>
     );
   }

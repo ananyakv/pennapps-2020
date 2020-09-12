@@ -18,15 +18,11 @@ import { firebase } from "../firebase/config";
 
 function Chat (props) {
   const [messages, setMessages] = useState([])
-
-  const [value, onChangeText] = React.useState('');
-
-  if (props.route.params) {
-    const phone = props.route.params.phone;
-  }
+  const [phone, setPhone] = useState(props.route.params.phone.toString(10))
+  const [user, setUser] = useState(props.route.params.user)
 
   const getRef = () => {
-    return firebase.database().ref('messages/8326528580');
+    return firebase.database().ref('messages/' + phone);
   }
 
   const on = callback => {
@@ -52,10 +48,6 @@ function Chat (props) {
     getRef().off()
   }
 
-  const getUid = () => {
-    return "anon";
-  }
-
   const getTimestamp = () => {
     return firebase.database().ServerValue.TIMESTAMP;
   }
@@ -67,9 +59,9 @@ function Chat (props) {
       const message = {
         text,
         user,
-        timestamp: this.timestamp,
+        timestamp: timestamp,
       };
-      this.append(message);
+      setMessages(messages => [...messages, message]);
     }
   };
 
@@ -77,13 +69,15 @@ function Chat (props) {
     this.ref.push(message);
   }
 
-  // populate messages
   useEffect(() => {
-    // firebase.shared.on(message =>
-    //   this.setState(previousState => ({
-    //     messages: GiftedChat.append(previousState.messages, message),
-    //   }))
-    // );
+    // populate messages
+    firebase.on(message =>
+      this.setState(previousState => ({
+        messages: GiftedChat.append(previousState.messages, message),
+      }))
+    );
+    // stop listening for database changes on unmount
+    return firebase.off();
   });
 
   return (
@@ -97,13 +91,8 @@ function Chat (props) {
         title="Back to home"
         onPress={() => props.navigation.navigate("Home")}
       />
-    <GiftedChat messages={messages}>
+    <GiftedChat messages={messages} onSend={firebase.send} user={user}>
     </GiftedChat>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={text => onChangeText(text)}
-        value={""}
-      />
     </SafeAreaView>
   );
 }

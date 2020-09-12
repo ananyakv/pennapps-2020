@@ -12,6 +12,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { firebase } from "../firebase/config";
 import Styles from "../Styles";
+import PhoneCall from "../PhoneCall";
 
 function HomeScreen(props) {
     const getDate = () => {
@@ -40,37 +41,48 @@ function HomeScreen(props) {
                 "Joined Queue!",
                 "You are number " + position + " in the queue",
                 [
-                    { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867" })} }
+                    { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" })} }
                 ],
                 { cancelable: false }
             );
         })
     }
 
-  return (
-    <View style={Styles.container}>
-      <Image source={require("../logo.jpeg")} style={Styles.logo} />
-      <Text style={Styles.title}>S p e a k</Text>
-      <TouchableOpacity onPress={joinQueue}>
-        <View style={Styles.buttonBackgroundBlue}>
-          <Text style={Styles.buttonText}>
-            Connect With a Hearing Volunteer
-          </Text>
+    const matchUsers = () => {
+        PhoneCall(props)
+    }
+
+    return (
+        <View style={Styles.container}>
+            <Image
+                source={require('../logo.jpeg')}
+                style={Styles.logo}
+            />
+            <Text style={Styles.title}>
+                S p e a k
+            </Text>
+            <TouchableOpacity onPress={joinQueue}>
+                <View style={Styles.buttonBackground1}>
+                    <Text style={Styles.buttonText}>
+                        Connect With a Hearing Volunteer
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Bot')}>
+                <View style={Styles.buttonBackground1}>
+                    <Text style={Styles.buttonText}>
+                        Go to Text and Speech Bot
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={matchUsers}>
+                <View style={Styles.buttonBackground2}>
+                    <Text style={Styles.buttonText}>
+                        Volunteer to Help
+                    </Text>
+                </View>
+            </TouchableOpacity>
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.navigation.navigate("Bot")}>
-        <View style={Styles.buttonBackground1}>
-          <Text style={Styles.buttonText}>Go to Text and Speech Bot</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.navigation.navigate("Chat")}>
-        <View style={Styles.buttonBackgroundGray}>
-          <Text style={Styles.buttonText}>
-              Volunteer to Help
-        </Text>
-        </View>
-      </TouchableOpacity>
-    </View>
   );
 }
 
