@@ -15,16 +15,6 @@ import Communications from "react-native-communications";
 class Chat extends React.Component {
   render() {
     return (
-      // <View>
-      //     <Text>Chat</Text>
-
-      //     <Button
-      //         title="Back to home"
-      //         onPress={() =>
-      //             this.props.navigation.navigate('Home')
-      //         }
-      //     />
-      // </View>
       <SafeAreaView>
         <Button
           title="make phone call"
