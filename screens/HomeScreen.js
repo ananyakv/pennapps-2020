@@ -38,10 +38,10 @@ function HomeScreen(props) {
             phone: firebase.auth().currentUser.displayName,
           });
         firebase.database().ref("queue/count").set(position);
-        var initialMsg = {
+        const initialMsg = {
           _id: 0,
-          text: "You have connected with a live user!",
-          createdAt: getDate(),
+          text: "A user has joined the chat!",
+          createdAt: getDate().toString(),
           user: {
             _id: 0,
             name: "requester",
