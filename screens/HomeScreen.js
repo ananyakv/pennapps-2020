@@ -1,18 +1,14 @@
 import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
-  Button,
-  Alert,
   TouchableOpacity,
   Image,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { firebase } from "../firebase/config";
 import Styles from "../Styles";
 import PhoneCall from "../PhoneCall";
+import SpeechToTextButton from "../SpeechToTextButton";
 
 function HomeScreen(props) {
     const getDate = () => {
@@ -63,44 +59,40 @@ function HomeScreen(props) {
         PhoneCall(props)
     }
 
-    return (
-        <View style={Styles.container}>
-            <Image
-                source={require('../logo.jpeg')}
-                style={Styles.logo}
-            />
-            <Text style={Styles.title}>
-                S p e a k
-            </Text>
-            <TouchableOpacity onPress={joinQueue}>
-                <View style={Styles.buttonBackgroundBlue}>
-                    <Text style={Styles.buttonText}>
-                        Connect With a Hearing Volunteer
-                    </Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.navigation.navigate('Bot')}>
-                <View style={Styles.buttonBackgroundBlue}>
-                    <Text style={Styles.buttonText}>
-                        Go to Text and Speech Bot
-                    </Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={matchUsers}>
-                <View style={Styles.buttonBackgroundGray}>
-                    <Text style={Styles.buttonText}>
-                        Volunteer to Help
-                    </Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={signOut}>
-              <View style={Styles.buttonBackgroundGray}>
-                <Text style={Styles.buttonText}>
-                  Sign Out
-                </Text>
-              </View>
-            </TouchableOpacity>
+  const signOut = () => {
+    firebase.auth().signOut();
+  };
+
+  return (
+    <View style={Styles.container}>
+      <Image source={require("../logo.jpeg")} style={Styles.logo} />
+      <Text style={Styles.title}>S p e a k</Text>
+      <TouchableOpacity onPress={joinQueue}>
+        <View style={Styles.buttonBackgroundBlue}>
+          <Text style={Styles.buttonText}>
+            Connect With a Hearing Volunteer
+          </Text>
         </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => props.navigation.navigate("Bot")}>
+        <View style={Styles.buttonBackgroundBlue}>
+          <Text style={Styles.buttonText}>Go to Text and Speech Bot</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={matchUsers}>
+        <View style={Styles.buttonBackgroundGray}>
+          <Text style={Styles.buttonText}>Volunteer to Help</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={signOut}>
+        <View style={Styles.buttonBackgroundGray}>
+          <Text style={Styles.buttonText}>Sign Out</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 }
 

@@ -10,9 +10,10 @@ import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
 import LogInScreen from "./screens/LogInScreen";
 import SignUp from "./screens/SignUp";
-import LandingScreen from "./screens/LandingScreen";
-import PhoneCall from "./PhoneCall.js";
-import Styles from "./Styles";
+// import LandingScreen from "./screens/LandingScreen";
+// import PhoneCall from "./PhoneCall.js";
+// import Styles from "./Styles";
+import SpeechToTextButton from "./SpeechToTextButton";
 
 import * as firebase from "firebase";
 
@@ -79,6 +80,11 @@ function App() {
           <Stack.Screen
             name="Bot"
             component={BotMultiline}
+            options={{ header: () => null }}
+          />
+          <Stack.Screen
+            name="SpeechToTextButton"
+            component={SpeechToTextButton}
             options={{ header: () => null }}
           />
         </Stack.Navigator>
