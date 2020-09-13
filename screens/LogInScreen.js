@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Button } from "react-native";
 import { firebase } from "../firebase/config";
-// import auth from "@react-native-firebase/auth";
 
 function LogInScreen(props) {
   // firebase.auth().languageCode = "it";

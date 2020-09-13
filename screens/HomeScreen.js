@@ -93,6 +93,13 @@ function HomeScreen(props) {
                     </Text>
                 </View>
             </TouchableOpacity>
+            <TouchableOpacity onPress={signOut}>
+              <View style={Styles.buttonBackgroundGray}>
+                <Text style={Styles.buttonText}>
+                  Sign Out
+                </Text>
+              </View>
+            </TouchableOpacity>
         </View>
   );
 }
