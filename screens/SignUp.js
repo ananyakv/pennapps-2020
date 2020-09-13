@@ -50,7 +50,7 @@ function SignUp(props) {
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={Styles.container}>
           <Image source={require("../logo.jpeg")} style={Styles.logo} />
-          <Text style={{ fontSize: 30, color: "#1da1f2", marginTop: "20%" }}>
+          <Text style={{ fontSize: 30, color: "#1da1f2", marginTop: "10%" }}>
             Sign Up for Speak
           </Text>
           <Text style={{ color: "red" }}>{error}</Text>
@@ -81,7 +81,7 @@ function SignUp(props) {
           <Button title="Sign Up" onPress={handleSignUp} />
           <Button
             title="Already have an account? Login"
-            onPress={() => props.navigation.navigate("LogInScreen")}
+            onPress={() => props.navigation.navigate("LogIn")}
           />
         </View>
       </TouchableWithoutFeedback>

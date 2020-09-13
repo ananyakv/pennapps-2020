@@ -61,15 +61,7 @@ function LogInScreen(props) {
             break;
         }
       });
-    console.log(email, password);
-  }
-
-  async function confirmCode() {
-    try {
-      await confirm.confirm(code);
-    } catch (error) {
-      console.log("Invalid code.");
-    }
+    // console.log(email, password);
   }
 
   // confirmation has not been sent
@@ -77,6 +69,8 @@ function LogInScreen(props) {
     return (
       <View>
         <Text>Log In Screen</Text>
+        <Text style={{ color: "red" }}>{emailError}</Text>
+        <Text style={{ color: "red" }}>{passwordError}</Text>
         <div>
           <label>Email</label>
           <input

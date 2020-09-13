@@ -14,7 +14,6 @@ import SignUp from "./screens/SignUp";
 // import PhoneCall from "./PhoneCall.js";
 // import Styles from "./Styles";
 import SpeechToTextButton from "./SpeechToTextButton";
-
 import * as firebase from "firebase";
 
 const Stack = createStackNavigator();
