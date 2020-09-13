@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+import { Text, View, Button, TextInput, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
 import * as Speech from 'expo-speech';
 import Styles from '../Styles';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -21,7 +21,6 @@ const Bot = (props) => {
 const BotMultiline = (props) => {
     const [value, onChangeText] = React.useState('');
     const [lang, setLanguage] = React.useState('en');
-    const [currentPitch, setPitch] = React.useState(1.0)
 
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

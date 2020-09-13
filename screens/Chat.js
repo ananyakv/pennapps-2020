@@ -72,10 +72,6 @@ function Chat (props) {
         onPress={() => Communications.phonecall(phone, true)}
     />
 
-    <Button
-      title="Back to home"
-      onPress={() => props.navigation.navigate("Home")}
-    />
     <GiftedChat messages={messages} onSend={messages => onSend(messages)} user={user}/>
     </>
   );

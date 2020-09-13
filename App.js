@@ -16,7 +16,7 @@ import Styles from "./Styles";
 
 import * as firebase from "firebase";
 import * as firebaseui from "firebaseui";
-import auth from "@react-native-firebase/auth";
+// import auth from "@react-native-firebase/auth";
 
 const Stack = createStackNavigator();
 
