@@ -11,8 +11,8 @@ export default StyleSheet.create({
   title: {
     fontSize: 65,
     color: "#1da1f2",
-    marginTop: 50,
-    marginBottom: 70,
+    marginTop: 40,
+    marginBottom: 60,
   },
   logo: {
     width: 150,
@@ -38,7 +38,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 30,
-    marginTop: 30,
+    marginTop: 25,
   },
   buttonText: {
     color: "#f5f8fa",

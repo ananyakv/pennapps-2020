@@ -21,50 +21,39 @@ function HomeScreen(props) {
         return new Date(year, month, date, hours, min, sec);
     }
 
-  const joinQueue = () => {
-    firebase
-      .database()
-      .ref("queue/count")
-      .once("value", (snapshot) => {
-        var position = 1;
-        if (snapshot.exists()) {
-          position = snapshot.val() + 1;
-        }
-        const date = getDate();
-        firebase
-          .database()
-          .ref("queue/" + date)
-          .set({
-            phone: firebase.auth().currentUser.displayName,
-          });
-        firebase.database().ref("queue/count").set(position);
-        const initialMsg = {
-          _id: 0,
-          text: "A user has joined the chat!",
-          createdAt: getDate().toString(),
-          user: {
-            _id: 0,
-            name: "requester",
-          },
-        };
-        firebase
-          .database()
-          .ref("messages/" + firebase.auth().currentUser.displayName)
-          .set([initialMsg]);
-        // Alert.alert(
-        //     "Joined Queue!",
-        //     "You are number " + position + " in the queue",
-        //     [
-        //         { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone: firebase.auth().currentUser.displayName, user:"requester" })} }
-        //     ],
-        //     { cancelable: false }
-        // );
-        props.navigation.navigate("Chat", {
-          phone: firebase.auth().currentUser.displayName,
-          user: "requester",
-        });
-      });
-  };
+    const joinQueue = () => {
+        firebase.database().ref('queue/count').once("value", snapshot => {
+            var position = 1
+            var phone = "4088968867"
+            if (snapshot.exists()) {
+                position = snapshot.val() + 1
+            }
+            const date = getDate();
+            firebase.database().ref('queue/' + date).set({
+                phone: 4088968867
+            })
+            firebase.database().ref('queue/count').set(position)
+            var initialMsg = {
+                _id: 0,
+                text: "You have connected with a live user!", 
+                createdAt: getDate(),
+                user: {
+                    _id: 0,
+                    name: "requester"
+                },
+            } 
+            firebase.database().ref('messages/' + phone).set([initialMsg])
+            // Alert.alert(
+            //     "Joined Queue!",
+            //     "You are number " + position + " in the queue",
+            //     [
+            //         { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" })} }
+            //     ],
+            //     { cancelable: false }
+            // );
+            props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" });
+        })
+    }
 
     const matchUsers = () => {
         PhoneCall(props)

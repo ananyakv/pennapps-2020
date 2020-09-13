@@ -9,6 +9,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
+import Styles from "../Styles";
 import { GiftedChat } from "react-native-gifted-chat";
 
 import { Linking } from "react-native";
@@ -69,10 +70,15 @@ const getDateVal = (dateString) => {
 
   return (
     <>
-    <Button
-        title={"make phone call"}
-        onPress={() => Communications.phonecall(phone, true)}
-    />
+    <View style={{alignItems: "center", marginTop: '15%'}}>
+    <TouchableOpacity onPress={() => Communications.phonecall(phone, true)}>
+        <View style={Styles.buttonBackgroundBlue}>
+          <Text style={Styles.buttonText}>
+            Make phone call
+          </Text>
+        </View>
+    </TouchableOpacity>
+    </View>
 
     <GiftedChat messages={messages.sort(function(a,b){return getDateVal(b.createdAt) - getDateVal(a.createdAt)})} onSend={messages => onSend(messages)} user={user}/>
     </>

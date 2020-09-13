@@ -78,7 +78,7 @@ function SignUp(props) {
               clearButtonMode="always"
             />
           </View>
-          <Button title="Sign Up" onPress={handleSignUp} />
+          <Button title="Sign Up" onPress={handleSignUp}/>
           <Button
             title="Already have an account? Login"
             onPress={() => props.navigation.navigate("LogInScreen")}
