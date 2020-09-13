@@ -28,15 +28,12 @@
     "expo-status-bar": "^1.0.0",
     "ffmpeg": "0.0.4",
     "firebase": "^7.20.0",
-<<<<<<< HEAD
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "hapi": "^18.1.0",
     "react": "16.11.0",
-=======
     "firebaseui": "^4.6.1",
     "react": "~16.11.0",
->>>>>>> 3e3064fbd3734bfa08582a901561f496617de7ab
     "react-color": "^2.18.1",
     "react-dom": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
