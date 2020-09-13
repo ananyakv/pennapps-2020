@@ -9,6 +9,7 @@ import Connecting from "./screens/Connecting";
 import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
 import Styles from "./Styles";
+import SpeechToText from "./SpeechToText";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,11 @@ class App extends React.Component {
           <Stack.Screen
             name="Bot"
             component={BotMultiline}
+            options={{ header: () => null }}
+          />
+          <Stack.Screen
+            name="SpeechToText"
+            component={SpeechToText}
             options={{ header: () => null }}
           />
         </Stack.Navigator>

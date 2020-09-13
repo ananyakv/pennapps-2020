@@ -74,14 +74,21 @@ function HomeScreen(props) {
       <TouchableOpacity onPress={() => props.navigation.navigate("Bot")}>
         <View style={Styles.buttonBackgroundBlue}>
           <Text style={Styles.buttonText}>
-              Go to Text and Speech Bot
+            Go to Text and Speech Bot
         </Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.navigation.navigate("Chat")}>
         <View style={Styles.buttonBackgroundGray}>
           <Text style={Styles.buttonText}>
-              Volunteer to Help
+            Volunteer to Help
+        </Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => props.navigation.navigate("SpeechToText")}>
+        <View style={Styles.buttonBackgroundGray}>
+          <Text style={Styles.buttonText}>
+            Speech to text
         </Text>
         </View>
       </TouchableOpacity>
