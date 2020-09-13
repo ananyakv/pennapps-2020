@@ -33,6 +33,13 @@ export default StyleSheet.create({
     borderRadius: 30,
     marginTop: 15,
   },
+  smallButtonBackgroundGray: {
+    backgroundColor: "#aab8c2",
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 30,
+    marginTop: 30,
+  },
   buttonText: {
     color: "#f5f8fa",
     fontSize: 18,

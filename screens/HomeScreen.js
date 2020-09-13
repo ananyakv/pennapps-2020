@@ -88,7 +88,7 @@ function HomeScreen(props) {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={signOut}>
-        <View style={Styles.buttonBackgroundGray}>
+        <View style={Styles.smallButtonBackgroundGray}>
           <Text style={Styles.buttonText}>Sign Out</Text>
         </View>
       </TouchableOpacity>
