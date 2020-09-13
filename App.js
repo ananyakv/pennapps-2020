@@ -16,8 +16,11 @@ import SignUp from "./screens/SignUp";
 import SpeechToTextButton from "./SpeechToTextButton";
 
 import * as firebase from "firebase";
+<<<<<<< HEAD
 // import * as firebaseui from "firebaseui";
 // import auth from "@react-native-firebase/auth";
+=======
+>>>>>>> 9f8464b8be318ffbdee479f4fc56d4c4c421eee9
 
 const Stack = createStackNavigator();
 
@@ -44,7 +47,6 @@ function App() {
   });
 
   if (!isLogged) {
-    console.log("user");
     return (
       <NavigationContainer>
         <Stack.Navigator>
