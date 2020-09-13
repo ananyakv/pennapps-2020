@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View, Button } from "react-native";
 import { firebase } from "../firebase/config";
-import { LogInScreen } from "./LogInScreen";
+// import { LogInScreen } from "./LogInScreen";
 
 function SignUp(props) {
   const [email, setEmail] = useState("");

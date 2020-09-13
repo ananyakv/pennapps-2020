@@ -78,3 +78,4 @@ const BotMultiline = (props) => {
     </TouchableWithoutFeedback>
   );
 };
+export default BotMultiline;

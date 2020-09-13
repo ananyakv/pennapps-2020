@@ -26,6 +26,7 @@
     "react-color": "^2.18.1",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-action-sheet": "^2.2.0",
     "react-native-communications": "^2.2.1",
     "react-native-dropdown-picker": "^3.6.8",
     "react-native-gesture-handler": "~1.6.0",
