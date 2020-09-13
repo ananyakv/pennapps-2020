@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
   Button,
@@ -11,7 +10,7 @@ import {
 } from "react-native";
 import * as Speech from "expo-speech";
 import Styles from "../Styles";
-// import DropDownPicker from "react-native-dropdown-picker";
+import DropDownPicker from "react-native-dropdown-picker";
 
 const Bot = (props) => {
   const [language, setLanguage] = React.useState("en");
@@ -30,7 +29,6 @@ const Bot = (props) => {
 const BotMultiline = (props) => {
   const [value, onChangeText] = React.useState("");
   const [lang, setLanguage] = React.useState("en");
-  const [currentPitch, setPitch] = React.useState(1.0);
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -43,7 +41,7 @@ const BotMultiline = (props) => {
             marginHorizontal: "5%",
           }}
         >
-          {/* <DropDownPicker
+          <DropDownPicker
             items={[
               { label: "English", value: "en" },
               { label: "Spanish", value: "es-419" },
@@ -54,7 +52,7 @@ const BotMultiline = (props) => {
             placeholder="Select a language"
             containerStyle={{ height: 40, width: 200 }}
             placeholderStyle={{ color: "#aab8c2" }}
-          /> */}
+          />
         </View>
 
         <View style={{ alignItems: "center", marginTop: "55%" }}>
@@ -67,7 +65,7 @@ const BotMultiline = (props) => {
           </TouchableOpacity>
         </View>
 
-        <View style={{ padding: "2%" }}>
+        <View style={{ padding: "2%", marginBottom: "50%" }}>
           <Bot
             onChangeText={(text) => onChangeText(text)}
             value={value}
@@ -78,4 +76,5 @@ const BotMultiline = (props) => {
     </TouchableWithoutFeedback>
   );
 };
+
 export default BotMultiline;
