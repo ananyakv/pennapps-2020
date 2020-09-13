@@ -17,25 +17,42 @@ function PhoneCall(props) {
       if (snapshot.exists()) {
         var firstKey = Object.keys(snapshot.val())[0];
         phone = snapshot.val()[firstKey].phone;
-        firebase
-          .database()
-          .ref("queue/" + firstKey)
-          .remove();
+        if (firstKey != "count") {
+          console.log(firstKey)
+          firebase
+            .database()
+            .ref("queue/" + firstKey)
+            .remove();
+        }
         firebase
           .database()
           .ref("queue/count")
           .once("value", (snapshot) => {
             var count = snapshot.val() - 1;
-            firebase.database().ref("queue/count").set(count);
+            if (count >= 0) {
+              firebase.database().ref("queue/count").set(count);
+            }
           });
-          Alert.alert(
-          "Match Found!",
-          "You will be connected with the first user in the queue",
-          [
-              { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone: phone, user:"volunteer" })} }
-          ],
-          { cancelable: false }
-        );
+          if(phone) {
+            Alert.alert(
+              "Match Found!",
+              "You will be connected with the first user in the queue",
+              [
+                  { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone: phone, user:"volunteer" })} }
+              ],
+              { cancelable: false }
+            );
+          }
+          else {
+            Alert.alert(
+              "Queue is Empty",
+              "Thanks for checking in!",
+              [
+                  { text: "OK", onPress: () => {} }
+              ],
+              { cancelable: false }
+            );
+          }
       }
     });
 }
