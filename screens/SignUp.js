@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { firebase } from "../firebase/config";
 import Styles from "../Styles";
-import { LogInScreen } from "./LogInScreen";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 function SignUp(props) {
@@ -57,6 +56,7 @@ function SignUp(props) {
           <View style={{ width: "90%" }}>
             <TextInput
               placeholder="Email"
+              required
               autoCapitalize="none"
               style={Styles.chatText}
               onChangeText={(email) => setEmail(email)}
@@ -64,6 +64,7 @@ function SignUp(props) {
             />
             <TextInput
               placeholder="Phone Number"
+              required
               autoCapitalize="none"
               style={Styles.chatText}
               onChangeText={(phone) => setPhone(phone)}
@@ -72,13 +73,14 @@ function SignUp(props) {
             <TextInput
               secureTextEntry
               placeholder="Password"
+              required
               autoCapitalize="none"
               style={Styles.chatText}
               onChangeText={(password) => setPassword(password)}
               clearButtonMode="always"
             />
           </View>
-          <Button title="Sign Up" onPress={handleSignUp}/>
+          <Button title="Sign Up" onPress={handleSignUp} />
           <Button
             title="Already have an account? Login"
             onPress={() => props.navigation.navigate("LogIn")}

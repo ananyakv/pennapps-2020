@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, TextInput, Image } from "react-native";
 import { firebase } from "../firebase/config";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import Styles from "../Styles";
 
-function LogInScreen(props) {
-  // firebase.auth().languageCode = "it";
-  // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("LogIn", {
-  //   size: "invisible",
-  //   callback: function (response) {
-  //     // reCAPTCHA solved, allow signInWithPhoneNumber.
-  //     onSignInSubmit();
-  //   },
-  // });
-
+function LogInScreen() {
   // If null, no SMS has been sent
   const [confirm, setConfirm] = useState(null);
 
@@ -22,31 +15,10 @@ function LogInScreen(props) {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState(false);
-
-  // Handle the button press
-  // function signInWithPhoneNumber() {
-  //   var appVerifier = window.recaptchaVerifier;
-  //   const confirmation = firebase
-  //     .auth()
-  //     .signInWithPhoneNumber(phone, appVerfier)
-  //     .then(function (confirmationResult) {
-  //       // SMS sent. Prompt user to type the code from the message, then sign the
-  //       // user in with confirmationResult.confirm(code).
-  //       window.confirmationResult = confirmationResult;
-  //     })
-  //     .catch(function (error) {
-  //       // Error; SMS not sent
-  //       window.recaptchaVerifier.render().then(function (widgetId) {
-  //         grecaptcha.reset(widgetId);
-  //       });
-  //     });
-  //   console.log("hi", phone);
-  //   // props.setPhoneNum(phone);
-  // }
 
   function signInWithEmail() {
     console.log("hi");
+    console.log(email, password);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -61,55 +33,55 @@ function LogInScreen(props) {
             break;
         }
       });
-    // console.log(email, password);
   }
 
   // confirmation has not been sent
   if (!confirm) {
     return (
-      <View>
-        <Text>Log In Screen</Text>
-        <Text style={{ color: "red" }}>{emailError}</Text>
-        <Text style={{ color: "red" }}>{passwordError}</Text>
-        <div>
-          <label>Email</label>
-          <input
-            type="text"
-            autoFocus
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <label>Password</label>
-          <input
-            type="text"
-            autoFocus
-            required
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
+        <View style={Styles.container}>
+          <Image source={require("../logo.jpeg")} style={Styles.logo} />
+          <Text style={{ fontSize: 30, color: "#1da1f2", marginTop: "10%" }}>
+            Log Into Speak
+          </Text>
+          <Text style={{ color: "red" }}>{emailError}</Text>
+          <Text style={{ color: "red" }}>{passwordError}</Text>
+          <View style={{ width: "90%" }}>
+            <TextInput
+              placeholder="Email"
+              required
+              style={Styles.chatText}
+              value={email}
+              onChangeText={(email) => setEmail(email)}
+              clearButtonMode="always"
+            />
+            <TextInput
+              placeholder="Password"
+              required
+              secureTextEntry
+              style={Styles.chatText}
+              value={password}
+              onChangeText={(password) => setPassword(password)}
+              clearButtonMode="always"
+            />
+          </View>
           <Button
-            color="black"
+            color="#0693E3"
             title="Log In"
             id="LogIn"
-            // onPress={() => console.log("hi")}
             onPress={signInWithEmail}
           ></Button>
-        </div>
-      </View>
+        </View>
+      </KeyboardAwareScrollView>
     );
   }
 
-  return (
-    <>
-      <TextInput value={code} onChangeText={(text) => setCode(text)} />
-      <Button title="Confirm Code" onPress={() => confirmCode()} />
-    </>
-  );
+  // return (
+  //   <>
+  //     <TextInput value={code} onChangeText={(text) => setCode(text)} />
+  //     <Button title="Confirm Code" onPress={() => confirmCode()} />
+  //   </>
+  // );
 }
 
 export default LogInScreen;
