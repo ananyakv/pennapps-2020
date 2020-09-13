@@ -31,8 +31,7 @@ function Chat (props) {
     getRef().limitToLast(20).on('child_added', (snapshot) => {
       parse(snapshot)});
     firebase.database().ref('messages/' + phone + '/0/phoneNum2').on('value', (snapshot) => {
-      if(snapshot.exists()) {
-        firebase.database().ref('messages/' + phone + '/0/snapshot').set(snapshot.val())
+      if(snapshot.exists() && user == "requester") {
         setCallPhone(snapshot.val());
       }
     });
