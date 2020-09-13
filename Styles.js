@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { color } from "react-native-reanimated";
 
 export default StyleSheet.create({
   container: {
@@ -10,7 +11,7 @@ export default StyleSheet.create({
   title: {
     fontSize: 65,
     color: "#1da1f2",
-    marginTop: 30,
+    marginTop: 50,
     marginBottom: 70,
   },
   logo: {
@@ -21,14 +22,14 @@ export default StyleSheet.create({
   buttonBackgroundBlue: {
     backgroundColor: "#1da1f2",
     paddingVertical: 20,
-    paddingHorizontal: 25,
+    paddingHorizontal: 30,
     borderRadius: 30,
-    margin: 3,
+    margin: 5,
   },
   buttonBackgroundGray: {
     backgroundColor: "#aab8c2",
     paddingVertical: 20,
-    paddingHorizontal: 25,
+    paddingHorizontal: 30,
     borderRadius: 30,
     marginTop: 15,
   },
@@ -38,8 +39,8 @@ export default StyleSheet.create({
     fontWeight: "400",
   },
   chatText: {
-    fontSize: 16,
-    height: 40,
+    fontSize: 18,
+    height: 50,
     borderWidth: 1,
     borderColor: "#e1e8ed",
     paddingLeft: 20,
