@@ -30,9 +30,16 @@ function Chat (props) {
     // populate messages
     getRef().limitToLast(20).on('child_added', (snapshot) => {
       parse(snapshot)});
+    firebase.database().ref('messages/' + phone + '/0/phoneNum2').on('value', (snapshot) => {
+      if(snapshot.exists()) {
+        firebase.database().ref('messages/' + phone + '/0/snapshot').set(snapshot.val())
+        setCallPhone(snapshot.val());
+      }
+    });
     // stop listening for database changes on unmount
     return () => {
-      getRef().off()
+      firebase.database().ref('messages/' + phone + '/0/phoneNum2').off();
+      getRef().off();
     };
   },[]);
 
@@ -64,19 +71,10 @@ const getDateVal = (dateString) => {
       const message = {
         text: text,
         user: user,
-        createdAt: getDate().toString()
+        createdAt: getDate().toString(),
+        _id: messages.length
       };
-      var newKey = getRef().push(message).key;
-      firebase.database().ref('messages/' + phone + "/"+ newKey + "/" + "_id").set(newKey);
-      
-      // check for new user
-      if (text == "A user has entered the chat!") {
-        firebase.database().ref('messages/' + phone + '/0/phone2').once('value', snapshot => {
-          if (snapshot.exists()) {
-            setPhone(snapshot.val());
-          }
-        });
-      }
+      firebase.database().ref('messages/' + phone + "/"+ messages.length).set(message);
     }
   };
 

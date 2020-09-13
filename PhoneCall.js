@@ -50,7 +50,7 @@ function PhoneCall(props) {
                   { text: "OK", onPress: () => {
                     props.navigation.navigate('Chat', { phone: phone, user:"volunteer" })
                     const initialMsg = {
-                      _id: 1,
+                      _id: -1,
                       text: "A user has joined the chat!",
                       createdAt: getDate().toString(),
                       user: {
