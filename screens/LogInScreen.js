@@ -17,8 +17,6 @@ function LogInScreen() {
   const [passwordError, setPasswordError] = useState("");
 
   function signInWithEmail() {
-    console.log("hi");
-    console.log(email, password);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
