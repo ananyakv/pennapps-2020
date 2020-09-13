@@ -11,15 +11,15 @@ import PhoneCall from "../PhoneCall";
 import SpeechToTextButton from "../SpeechToTextButton";
 
 function HomeScreen(props) {
-  const getDate = () => {
-    var date = new Date().getDate(); //To get the Current Date
-    var month = new Date().getMonth(); //To get the Current Month
-    var year = new Date().getFullYear(); //To get the Current Year
-    var hours = new Date().getHours(); //To get the Current Hours
-    var min = new Date().getMinutes(); //To get the Current Minutes
-    var sec = new Date().getSeconds(); //To get the Current Seconds
-    return new Date(year, month, date, hours, min, sec);
-  };
+    const getDate = () => {
+        var date = new Date().getDate(); //To get the Current Date
+        var month = new Date().getMonth(); //To get the Current Month
+        var year = new Date().getFullYear(); //To get the Current Year
+        var hours = new Date().getHours(); //To get the Current Hours
+        var min = new Date().getMinutes(); //To get the Current Minutes
+        var sec = new Date().getSeconds(); //To get the Current Seconds
+        return new Date(year, month, date, hours, min, sec);
+    }
 
   const joinQueue = () => {
     firebase
@@ -66,9 +66,9 @@ function HomeScreen(props) {
       });
   };
 
-  const matchUsers = () => {
-    PhoneCall(props);
-  };
+    const matchUsers = () => {
+        PhoneCall(props)
+    }
 
   const signOut = () => {
     firebase.auth().signOut();
@@ -85,21 +85,19 @@ function HomeScreen(props) {
           </Text>
         </View>
       </TouchableOpacity>
+
       <TouchableOpacity onPress={() => props.navigation.navigate("Bot")}>
         <View style={Styles.buttonBackgroundBlue}>
           <Text style={Styles.buttonText}>Go to Text and Speech Bot</Text>
         </View>
       </TouchableOpacity>
+
       <TouchableOpacity onPress={matchUsers}>
         <View style={Styles.buttonBackgroundGray}>
           <Text style={Styles.buttonText}>Volunteer to Help</Text>
         </View>
-        {/* <TouchableOpacity onPress={() => props.navigation.navigate("SpeechToTextButton")}>
-          <View style={Styles.buttonBackgroundGray}>
-            <Text style={Styles.buttonText}>Speech to Text</Text>
-          </View>
-        </TouchableOpacity> */}
       </TouchableOpacity>
+
       <TouchableOpacity onPress={signOut}>
         <View style={Styles.buttonBackgroundGray}>
           <Text style={Styles.buttonText}>Sign Out</Text>

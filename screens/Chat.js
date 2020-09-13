@@ -74,11 +74,7 @@ const getDateVal = (dateString) => {
         onPress={() => Communications.phonecall(phone, true)}
     />
 
-    <Button
-      title="Back to home"
-      onPress={() => props.navigation.navigate("Home")}
-    />
-    <GiftedChat messages={messages.sort(function(a, b){return getDateVal(b.createdAt) - getDateVal(a.createdAt)})} onSend={messages => onSend(messages)} user={user}/>
+    <GiftedChat messages={messages.sort(function(a,b){return getDateVal(b.createdAt) - getDateVal(a.createdAt)})} onSend={messages => onSend(messages)} user={user}/>
     </>
   );
 }
