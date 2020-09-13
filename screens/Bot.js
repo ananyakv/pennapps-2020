@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import * as Speech from "expo-speech";
 import Styles from "../Styles";
-import DropDownPicker from "react-native-dropdown-picker";
+// import DropDownPicker from "react-native-dropdown-picker";
 
 const Bot = (props) => {
   const [language, setLanguage] = React.useState("en");
@@ -43,7 +43,7 @@ const BotMultiline = (props) => {
             marginHorizontal: "5%",
           }}
         >
-          <DropDownPicker
+          {/* <DropDownPicker
             items={[
               { label: "English", value: "en" },
               { label: "Spanish", value: "es-419" },
@@ -54,7 +54,7 @@ const BotMultiline = (props) => {
             placeholder="Select a language"
             containerStyle={{ height: 40, width: 200 }}
             placeholderStyle={{ color: "#aab8c2" }}
-          />
+          /> */}
         </View>
 
         <View style={{ alignItems: "center", marginTop: "55%" }}>
@@ -78,3 +78,5 @@ const BotMultiline = (props) => {
     </TouchableWithoutFeedback>
   );
 };
+
+export default BotMultiline;

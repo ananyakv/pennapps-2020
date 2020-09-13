@@ -15,8 +15,6 @@ import PhoneCall from "./PhoneCall.js";
 import Styles from "./Styles";
 
 import * as firebase from "firebase";
-import * as firebaseui from "firebaseui";
-import auth from "@react-native-firebase/auth";
 
 const Stack = createStackNavigator();
 
@@ -43,7 +41,6 @@ function App() {
   });
 
   if (!isLogged) {
-    console.log("user");
     return (
       <NavigationContainer>
         <Stack.Navigator>
