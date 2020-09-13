@@ -51,14 +51,13 @@ const BotMultiline = (props) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ padding: '2%' }}>
+                <View style={{ padding: '2%', marginBottom: '50%' }}>
                     <Bot
                         onChangeText={text => onChangeText(text)}
                         value={value}
                         placeholder="Type here"
                     />
                 </View>
-
             </View>
         </TouchableWithoutFeedback >
     );
