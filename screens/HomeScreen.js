@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Alert
 } from "react-native";
 import { firebase } from "../firebase/config";
 import Styles from "../Styles";
@@ -24,34 +25,32 @@ function HomeScreen(props) {
     const joinQueue = () => {
         firebase.database().ref('queue/count').once("value", snapshot => {
             var position = 1
-            var phone = "4088968867"
             if (snapshot.exists()) {
                 position = snapshot.val() + 1
             }
             const date = getDate();
             firebase.database().ref('queue/' + date).set({
-                phone: 4088968867
+                phone: firebase.auth().currentUser.displayName,
             })
             firebase.database().ref('queue/count').set(position)
             var initialMsg = {
                 _id: 0,
-                text: "You have connected with a live user!", 
-                createdAt: getDate(),
+                text: "A user has entered the chat!", 
+                createdAt: getDate().toString(),
                 user: {
                     _id: 0,
                     name: "requester"
                 },
             } 
-            firebase.database().ref('messages/' + phone).set([initialMsg])
-            // Alert.alert(
-            //     "Joined Queue!",
-            //     "You are number " + position + " in the queue",
-            //     [
-            //         { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" })} }
-            //     ],
-            //     { cancelable: false }
-            // );
-            props.navigation.navigate('Chat', { phone:"4088968867", user:"requester" });
+            firebase.database().ref('messages/' + firebase.auth().currentUser.displayName).set([initialMsg])
+            Alert.alert(
+                "Joined Queue!",
+                "You are number " + position + " in the queue",
+                [
+                    { text: "OK", onPress: () => {props.navigation.navigate('Chat', { phone:firebase.auth().currentUser.displayName, user:"requester" })} }
+                ],
+                { cancelable: false }
+            );
         })
     }
 
