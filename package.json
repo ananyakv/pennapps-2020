@@ -12,14 +12,7 @@
     "@google-cloud/text-to-speech": "^3.1.0",
     "@hapi/hapi": "^20.0.0",
     "@react-native-community/masked-view": "0.1.10",
-<<<<<<< HEAD
-    "@react-native-community/push-notification-ios": "^1.5.0",
-    "@react-native-community/slider": "3.0.0",
-    "@react-native-firebase/app": "^8.4.2",
-    "@react-native-firebase/auth": "^9.2.2",
-=======
     "@react-native-community/slider": "^3.0.3",
->>>>>>> 9f8464b8be318ffbdee479f4fc56d4c4c421eee9
     "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/core": "^5.12.3",
     "@react-navigation/native": "^5.7.3",
@@ -31,20 +24,9 @@
     "expo-notifications": "~0.3.3",
     "expo-permissions": "~9.0.1",
     "expo-speech": "~8.2.1",
-<<<<<<< HEAD
-    "expo-status-bar": "^1.0.0",
-    "ffmpeg": "0.0.4",
-    "firebase": "^7.9.0",
-    "firebaseui": "^4.6.1",
-    "fluent-ffmpeg": "^2.1.2",
-    "fs": "0.0.1-security",
-    "hapi": "^18.1.0",
-    "react": "16.11.0",
-=======
     "expo-status-bar": "^1.0.2",
     "firebase": "^7.20.0",
     "react": "~16.11.0",
->>>>>>> 9f8464b8be318ffbdee479f4fc56d4c4c421eee9
     "react-color": "^2.18.1",
     "react-dom": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
