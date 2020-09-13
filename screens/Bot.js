@@ -25,42 +25,41 @@ const BotMultiline = (props) => {
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View>
-                <View style={{ alignItems: "center", marginTop: "55%" }}>
-                    <TouchableOpacity
-                        onPress={() => Speech.speak(value, { language: lang })}
-                    >
-                        <View style={{ flex: 1, flexDirection: 'row-reverse', marginVertical: '15%', marginHorizontal: '5%' }}>
-                            <DropDownPicker
-                                items={[
-                                    { label: 'English', value: 'en' },
-                                    { label: 'Spanish', value: 'es-419' },
-                                    { label: 'German', value: 'gsw-u-sd-chzh' }
-                                ]}
-                                defaultIndex={0}
-                                onChangeItem={item => setLanguage(item.value)}
-                                placeholder='Select a language'
-                                containerStyle={{ height: 40, width: 200 }}
-                                placeholderStyle={{ color: '#aab8c2' }}
-                            />
-                        </View>
+                <View style={{ flex: 1, flexDirection: 'row-reverse', marginVertical: '15%', marginHorizontal: '5%' }}>
+                    <DropDownPicker
+                        items={[
+                            { label: 'Chinese', value: 'zh' },
+                            { label: 'English', value: 'en' },
+                            { label: 'French', value: 'fr' },
+                            { label: 'German', value: 'gsw-u-sd-chzh' },
+                            { label: 'Hindi', value: 'hi' },
+                            { label: 'Spanish', value: 'es-419' },
+                        ]}
+                        defaultIndex={0}
+                        onChangeItem={item => setLanguage(item.value)}
+                        placeholder='Select a language'
+                        containerStyle={{ height: 40, width: 200 }}
+                        placeholderStyle={{ color: '#aab8c2' }}
+                    />
+                </View>
 
-                        <View style={{ alignItems: 'center', marginTop: '55%' }}>
-                            <TouchableOpacity onPress={() => Speech.speak(value, { language: lang })}>
-                                <View style={Styles.buttonBackgroundBlue}>
-                                    <Text style={Styles.buttonText}>
-                                        Speak
+                <View style={{ alignItems: 'center', marginTop: '55%' }}>
+                    <TouchableOpacity onPress={() => Speech.speak(value, { language: lang })}>
+                        <View style={Styles.buttonBackgroundBlue}>
+                            <Text style={Styles.buttonText}>
+                                Speak
                             </Text>
-                                </View>
-                            </TouchableOpacity>
                         </View>
+                    </TouchableOpacity>
+                </View>
 
-                        <View style={{ padding: '2%', marginBottom: '50%' }}>
-                            <Bot
-                                onChangeText={text => onChangeText(text)}
-                                value={value}
-                                placeholder="Type here"
-                            />
-                        </View>
+                <View style={{ padding: '2%', marginBottom: '50%' }}>
+                    <Bot
+                        onChangeText={text => onChangeText(text)}
+                        value={value}
+                        placeholder="Type here"
+                    />
+                </View>
             </View>
         </TouchableWithoutFeedback >
     );
