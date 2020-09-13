@@ -32,20 +32,6 @@ const BotMultiline = (props) => {
     const [lang, setLanguage] = React.useState("en");
     const [currentPitch, setPitch] = React.useState(1.0);
 
-<<<<<<< HEAD
-    return (
-        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-            <View>
-                <View
-                    style={{
-                        flex: 1,
-                        flexDirection: "row-reverse",
-                        marginVertical: "15%",
-                        marginHorizontal: "5%",
-                    }}
-                >
-                    {/* <DropDownPicker
-=======
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View>
@@ -58,7 +44,6 @@ const BotMultiline = (props) => {
           }}
         >
           {/* <DropDownPicker
->>>>>>> 9f8464b8be318ffbdee479f4fc56d4c4c421eee9
             items={[
               { label: "English", value: "en" },
               { label: "Spanish", value: "es-419" },
@@ -70,13 +55,9 @@ const BotMultiline = (props) => {
             containerStyle={{ height: 40, width: 200 }}
             placeholderStyle={{ color: "#aab8c2" }}
           /> */}
-<<<<<<< HEAD
-                </View>
-=======
         </View>
->>>>>>> 9f8464b8be318ffbdee479f4fc56d4c4c421eee9
 
-                <View style={{ alignItems: "center", marginTop: "55%" }}>
+            <View style={{ alignItems: "center", marginTop: "55%" }}>
                     <TouchableOpacity
                         onPress={() => Speech.speak(value, { language: lang })}
                     >
