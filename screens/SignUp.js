@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View, Button } from "react-native";
+import { StyleSheet, Text, TextInput, View, Button, Image, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { firebase } from "../firebase/config";
+import Styles from "../Styles";
 import { LogInScreen } from "./LogInScreen";
 
 function SignUp(props) {
@@ -34,34 +35,44 @@ function SignUp(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Sign Up</Text>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <View style={Styles.container}>
+      <Image source={require("../logo.jpeg")} style={Styles.logo} />
+      <Text style={{ fontSize: 30, color: '#1da1f2', marginTop: '20%' }}>
+        Sign Up for Speak
+      </Text>
       <Text style={{ color: "red" }}>{error}</Text>
-      <TextInput
-        placeholder="Email"
-        autoCapitalize="none"
-        style={styles.textInput}
-        onChangeText={(email) => setEmail(email)}
-      />
-      <TextInput
-        placeholder="Phone Number"
-        autoCapitalize="none"
-        style={styles.textInput}
-        onChangeText={(phone) => setPhone(phone)}
-      />
-      <TextInput
-        secureTextEntry
-        placeholder="Password"
-        autoCapitalize="none"
-        style={styles.textInput}
-        onChangeText={(password) => setPassword(password)}
-      />
-      <Button title="Sign Up" onPress={handleSignUp} />
+      <View style={{width:'90%'}}>
+        <TextInput
+          placeholder="Email"
+          autoCapitalize="none"
+          style={Styles.chatText}
+          onChangeText={(email) => setEmail(email)}
+          clearButtonMode='always'
+        />
+        <TextInput
+          placeholder="Phone Number"
+          autoCapitalize="none"
+          style={Styles.chatText}
+          onChangeText={(phone) => setPhone(phone)}
+          clearButtonMode='always'
+        />
+        <TextInput
+          secureTextEntry
+          placeholder="Password"
+          autoCapitalize="none"
+          style={Styles.chatText}
+          onChangeText={(password) => setPassword(password)}
+          clearButtonMode='always'
+        />
+      </View>  
+      <Button title="Sign Up" onPress={handleSignUp}/>
       <Button
         title="Already have an account? Login"
         onPress={() => props.navigation.navigate("LogInScreen")}
       />
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({

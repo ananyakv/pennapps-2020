@@ -50,15 +50,17 @@ function Chat (props) {
     return new Date(year, month, date, hours, min, sec);
 }
 
+const getDateVal = (dateString) => {
+  return new Date(dateString);
+}
+
   const onSend = msgs => {
-    var date = getDate()
     for (let i = 0; i < msgs.length; i++) {
-      console.log("onsend", msgs[i])
       const { text, user } = msgs[i];
       const message = {
-        text,
-        user,
-        date
+        text: text,
+        user: user,
+        createdAt: getDate().toString()
       };
       var newKey = getRef().push(message).key;
       firebase.database().ref('messages/' + phone + "/"+ newKey + "/" + "_id").set(newKey);
@@ -72,11 +74,7 @@ function Chat (props) {
         onPress={() => Communications.phonecall(phone, true)}
     />
 
-    <Button
-      title="Back to home"
-      onPress={() => props.navigation.navigate("Home")}
-    />
-    <GiftedChat messages={messages} onSend={messages => onSend(messages)} user={user}/>
+    <GiftedChat messages={messages.sort(function(a,b){return getDateVal(b.createdAt) - getDateVal(a.createdAt)})} onSend={messages => onSend(messages)} user={user}/>
     </>
   );
 }
