@@ -14,27 +14,10 @@ function SignUp(props) {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log("current", firebase.auth().currentUser);
-        console.log("user", user);
         if (firebase.auth().currentUser) {
           firebase.auth().currentUser.updateProfile({
             displayName: phone.toString(10),
-            phoneNumber: phone,
           });
-          //   console.log("keys bracket ", user.user[displayName]);
-          console.log(user.user[10]);
-          //   console.log('phoneNumuser.user.phoneNumber);
-          for (var key in user.user) {
-            user2 = user.user;
-            console.log(key);
-            if (user.hasOwnProperty(key)) {
-              console.log(user2[key]);
-            }
-          }
-          //   Object.keys(user.user).forEach(function (key) {
-          //     console.log(key, user.user[key]);
-          //   });
-          //   console.log("hm", firebase.auth().currentUser.displayName);
         }
       })
       .catch((err) => {

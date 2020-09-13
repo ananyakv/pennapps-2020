@@ -1,18 +1,14 @@
 import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
-  Button,
-  Alert,
   TouchableOpacity,
   Image,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { firebase } from "../firebase/config";
 import Styles from "../Styles";
 import PhoneCall from "../PhoneCall";
+import SpeechToTextButton from "../SpeechToTextButton";
 
 function HomeScreen(props) {
   const getDate = () => {
@@ -98,6 +94,11 @@ function HomeScreen(props) {
         <View style={Styles.buttonBackgroundGray}>
           <Text style={Styles.buttonText}>Volunteer to Help</Text>
         </View>
+        {/* <TouchableOpacity onPress={() => props.navigation.navigate("SpeechToTextButton")}>
+          <View style={Styles.buttonBackgroundGray}>
+            <Text style={Styles.buttonText}>Speech to Text</Text>
+          </View>
+        </TouchableOpacity> */}
       </TouchableOpacity>
       <TouchableOpacity onPress={signOut}>
         <View style={Styles.buttonBackgroundGray}>
