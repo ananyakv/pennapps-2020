@@ -10,14 +10,14 @@ import BotMultiline from "./screens/Bot";
 import Chat from "./screens/Chat";
 import LogInScreen from "./screens/LogInScreen";
 import SignUp from "./screens/SignUp";
-import LandingScreen from "./screens/LandingScreen";
-import PhoneCall from "./PhoneCall.js";
-import Styles from "./Styles";
-import SpeechToText from "./SpeechToText";
+// import LandingScreen from "./screens/LandingScreen";
+// import PhoneCall from "./PhoneCall.js";
+// import Styles from "./Styles";
+import SpeechToTextButton from "./SpeechToTextButton";
 
 import * as firebase from "firebase";
-import * as firebaseui from "firebaseui";
-import auth from "@react-native-firebase/auth";
+// import * as firebaseui from "firebaseui";
+// import auth from "@react-native-firebase/auth";
 
 const Stack = createStackNavigator();
 
@@ -86,8 +86,8 @@ function App() {
             options={{ header: () => null }}
           />
           <Stack.Screen
-            name="SpeechToText"
-            component={SpeechToText}
+            name="SpeechToTextButton"
+            component={SpeechToTextButton}
             options={{ header: () => null }}
           />
         </Stack.Navigator>
