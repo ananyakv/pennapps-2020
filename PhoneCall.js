@@ -62,6 +62,8 @@ function PhoneCall(props) {
                       .database()
                       .ref("messages/" + phone)
                       .push(initialMsg);
+                    firebase.database().ref("messages/" + phone +"/0/phoneNum2")
+                    .set(firebase.auth().currentUser.displayName);
                   } }
               ],
               { cancelable: false }

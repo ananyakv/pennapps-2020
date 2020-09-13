@@ -20,6 +20,7 @@ import { firebase } from "../firebase/config";
 function Chat (props) {
   const [messages, setMessages] = useState([]);
   const [phone, setPhone] = useState(props.route.params.phone.toString(10))
+  const [callPhone, setCallPhone] = useState(props.route.params.phone.toString(10))
   const [user, setUser] = useState({
     _id: props.route.params.user == "requester" ? 0:1,
     name: props.route.params.user
@@ -30,7 +31,9 @@ function Chat (props) {
     getRef().limitToLast(20).on('child_added', (snapshot) => {
       parse(snapshot)});
     // stop listening for database changes on unmount
-    return () => {getRef().off()};
+    return () => {
+      getRef().off()
+    };
   },[]);
 
   const getRef = () => {
@@ -65,13 +68,22 @@ const getDateVal = (dateString) => {
       };
       var newKey = getRef().push(message).key;
       firebase.database().ref('messages/' + phone + "/"+ newKey + "/" + "_id").set(newKey);
+      
+      // check for new user
+      if (text == "A user has entered the chat!") {
+        firebase.database().ref('messages/' + phone + '/0/phone2').once('value', snapshot => {
+          if (snapshot.exists()) {
+            setPhone(snapshot.val());
+          }
+        });
+      }
     }
   };
 
   return (
     <>
     <View style={{alignItems: "center", marginTop: '15%'}}>
-    <TouchableOpacity onPress={() => Communications.phonecall(phone, true)}>
+    <TouchableOpacity onPress={() => Communications.phonecall(callPhone, true)}>
         <View style={Styles.buttonBackgroundBlue}>
           <Text style={Styles.buttonText}>
             Make phone call
