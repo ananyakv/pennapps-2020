@@ -4,9 +4,11 @@
     "slug": "pennapps-2020",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    // "icon": "./assets/icon.png",
+    "icon": "./logo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      // "image": "./assets/splash.png",
+      "image": "./logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

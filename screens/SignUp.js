@@ -78,7 +78,7 @@ function SignUp(props) {
               clearButtonMode="always"
             />
           </View>
-          <Button title="Sign Up" onPress={handleSignUp} />
+          <Button title="Sign Up" onPress={handleSignUp}/>
           <Button
             title="Already have an account? Login"
             onPress={() => props.navigation.navigate("LogIn")}
@@ -88,19 +88,5 @@ function SignUp(props) {
     </KeyboardAwareScrollView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textInput: {
-    height: 40,
-    width: "90%",
-    borderColor: "gray",
-    borderWidth: 1,
-    marginTop: 8,
-  },
-});
 
 export default SignUp;
